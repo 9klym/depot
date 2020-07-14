@@ -12,6 +12,16 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:image_url].any?
   end
 
+  test 'title must contain more than 10 characters' do
+    product = Product.new(title: "LT10",
+                          description: "yyy",
+                          image_url:"jjj.jpg",
+                          price: 9.99)
+    assert product.invalid?
+    assert_equal ['is too short (minimum is 10 characters)'],product.errors[:title]
+
+  end
+
   test "product price must be numerical" do
     product = Product.new(title: "My Book Title",
                           description: "yyy",
@@ -61,11 +71,11 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "product is not valid without unique title" do
-  product = Product.new(title: products(:ruby).title,
-                        description: "yyy",
-                        price: 1,
-                        image_url: "fred.gif")
-  assert product.invalid?
-  assert_equal ["has already been taken"], product.errors[:title]
+    product = Product.new(title: products(:ruby).title,
+                          description: "yyy",
+                          price: 1,
+                          image_url: "fred.gif")
+    assert product.invalid?
+    assert_equal ["has already been taken"], product.errors[:title]
   end
 end

@@ -5,9 +5,15 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     @product = products(:ruby)
   end
 
+
   test "should get index" do
     get products_url
     assert_response :success
+    assert_select 'h1', 'Products'
+    assert_select 'h1', 'Programming Ruby 1.9'
+    assert_select 'h1', 'Programming Crystal'
+    assert_select 'table tr.list_line_odd', 1
+    assert_select 'table tr.list_line_even', 1
   end
 
   test "should get new" do

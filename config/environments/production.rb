@@ -1,4 +1,7 @@
 Rails.application.configure do
+  # Prepare the ingress controller used to receive mail
+  # config.action_mailbox.ingress = :relay
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -12,6 +15,9 @@ Rails.application.configure do
 
 
   Rails.application.configure do
+  # Prepare the ingress controller used to receive mail
+  # config.action_mailbox.ingress = :relay
+
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
         address:

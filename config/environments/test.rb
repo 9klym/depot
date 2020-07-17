@@ -52,4 +52,5 @@ Rails.application.configure do
     config.action_mailer.delivery_method = :test
   end
 
+  config.active_storage.service = :test
 end

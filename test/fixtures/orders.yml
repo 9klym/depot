@@ -3,11 +3,11 @@
 one:
   name: Alex
   address: Kharkiv
-  email: nvkvgk@lvmk.com
+  email: alex@example.org
   pay_type: 1
 
 two:
-  name: Jack
+  name: Dave
   address: Kyiv
-  email: fvklmf@vkg.com
+  email: dave@example.org
   pay_type: 1
